@@ -1,4 +1,9 @@
 <h2>Students</h2>
 <ol>
-  <li *ngFor="let item of students; index as i;" [style.font-weight]="checkName(item)" (click)="greet(item)">{{ item }}</li>
+  <li *ngFor="let item of students; index as i;">
+    <a *ngIf="isCurrentUser(item); else regularUser" href="#" [style.font-weight]="checkName(item)" (click)="greet(item)">{{ item }}</a>
+    <ng-template #regularUser>
+      <span>{{ item }}</span>
+    </ng-template>
+  </li>
 </ol>

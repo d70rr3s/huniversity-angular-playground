@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsComponent implements OnInit {
 
+  currentUser = 'Daniel';
+
   students: string[] = [
     'Anne',
     'Brian',
@@ -28,11 +30,15 @@ export class StudentsComponent implements OnInit {
   }
 
   checkName(name: string) {
-    return name === 'Daniel' ? 'bold' : 'normal';
+    return this.isCurrentUser(name) ? 'bold' : 'normal';
   }
 
   greet(name: string) {
     alert(`How'dy ${name}`);
+  }
+
+  isCurrentUser(name: string) {
+    return name === this.currentUser;
   }
 
 }
