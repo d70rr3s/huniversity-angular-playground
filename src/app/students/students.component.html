@@ -1,15 +1,4 @@
 <h2>Students</h2>
 <ol>
-  <li>Anne</li>
-  <li>Brian</li>
-  <li>Charlie</li>
-  <li>Daniel</li>
-  <li>Erick</li>
-  <li>Fred</li>
-  <li>Greg</li>
-  <li>Helen</li>
-  <li>Ian</li>
-  <li>Jane</li>
-  <li>Katherine</li>
-  <li>Laura</li>
+  <li *ngFor="let item of students; index as i; trackBy: trackByFn">{{ item }}</li>
 </ol>
