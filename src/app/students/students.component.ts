@@ -27,8 +27,12 @@ export class StudentsComponent implements OnInit {
   ngOnInit() {
   }
 
-  checkName = (name: string) => {
+  checkName(name: string) {
     return name === 'Daniel' ? 'bold' : 'normal';
+  }
+
+  greet(name: string) {
+    alert(`How'dy ${name}`);
   }
 
 }
