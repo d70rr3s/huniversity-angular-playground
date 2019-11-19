@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = '#hUniversity Angular 8';
+  currentUser = 'Daniel';
+
+  greeting(message: string) {
+    alert(message);
+  }
+
 }

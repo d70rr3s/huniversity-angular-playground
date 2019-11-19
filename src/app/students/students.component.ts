@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-students',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentsComponent implements OnInit {
 
-  currentUser = 'Daniel';
+  @Input() currentUser: string;
+  @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
 
   students: string[] = [
     'Anne',
@@ -33,8 +34,8 @@ export class StudentsComponent implements OnInit {
     return this.isCurrentUser(name) ? 'bold' : 'normal';
   }
 
-  greet(name: string) {
-    alert(`How'dy ${name}`);
+  emitClicked(name: string) {
+    this.clicked.emit(`How'dy ${name}`);
   }
 
   isCurrentUser(name: string) {
