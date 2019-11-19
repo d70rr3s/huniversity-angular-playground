@@ -10,24 +10,25 @@ export class StudentsComponent implements OnInit {
   @Input() currentUser: string;
   @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
 
-  students: string[] = [
-    'Anne',
-    'Brian',
-    'Charlie',
-    'Daniel',
-    'Erick',
-    'Fred',
-    'Greg',
-    'Helen',
-    'Ian',
-    'Jane',
-    'Katherine',
-    'Laura',
-  ];
+  students: string[];
 
   constructor() { }
 
   ngOnInit() {
+    this.students = [
+      'Anne',
+      'Brian',
+      'Charlie',
+      'Daniel',
+      'Erick',
+      'Fred',
+      'Greg',
+      'Helen',
+      'Ian',
+      'Jane',
+      'Katherine',
+      'Laura',
+    ];
   }
 
   checkName(name: string) {
