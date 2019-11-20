@@ -1,4 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-students',
@@ -12,7 +13,7 @@ export class StudentsComponent implements OnInit {
   currentUser = 'Daniel';
   students: string[];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.students = [
@@ -41,6 +42,10 @@ export class StudentsComponent implements OnInit {
 
   isCurrentUser(name: string) {
     return name === this.currentUser;
+  }
+
+  goHome() {
+    this.router.navigate(['']);
   }
 
 }
