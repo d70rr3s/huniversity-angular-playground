@@ -7,7 +7,8 @@ import {StudentsComponent} from './students/students.component';
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'students', component: StudentsComponent},
-  {path: 'students/:name', component: StudentsComponent}
+  {path: 'students/:name', component: StudentsComponent},
+  {path: '**', redirectTo: 'students'}
 ];
 
 @NgModule({
