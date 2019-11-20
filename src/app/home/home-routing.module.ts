@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './home.component';
 
 const appRoutes: Routes = [
-  {path: '**', redirectTo: 'students'}
+  {path: '', component: HomeComponent}
 ];
 
 @NgModule({
@@ -17,5 +18,4 @@ const appRoutes: Routes = [
   ]
 })
 
-export class AppRoutingModule {
-}
+export class HomeRoutingModule { }
