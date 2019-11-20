@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-students',
@@ -7,9 +7,9 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 })
 export class StudentsComponent implements OnInit {
 
-  @Input() currentUser: string;
   @Output() clicked: EventEmitter<string> = new EventEmitter<string>();
 
+  currentUser = 'Daniel';
   students: string[];
 
   constructor() { }
