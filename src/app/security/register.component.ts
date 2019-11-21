@@ -9,12 +9,14 @@ import { FormControl, FormGroup, Validators} from '@angular/forms';
 
 export class RegisterComponent implements OnInit {
 
+  dummy: string;
   submitted: boolean;
   form: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
+    this.dummy = null;
     this.submitted = false;
     this.form = new FormGroup({
       name: new FormControl(null, [
