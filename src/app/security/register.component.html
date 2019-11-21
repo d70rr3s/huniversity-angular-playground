@@ -1,14 +1,10 @@
-<form [formGroup]="form" (ngSubmit)="doRegister()">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input id="name" class="form-control" name="name" formControlName="name" />
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input id="email" class="form-control" name="email" formControlName="email" />
-  </div>
-  <button class="btn btn-primary" role="button" type="submit" [ngClass]="{'btn-light': !form.valid}" [disabled]="!form.valid">Register</button>
-  <button class="btn btn-secondary" role="button" type="button" [disabled]="!submitted" (click)="resetRegister()">Reset</button>
+<form class="example-container" [formGroup]="form" (ngSubmit)="doRegister()">
+  <mat-form-field>
+    <input matInput placeholder="Type your name" id="name" class="form-control" name="name" formControlName="name" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Type your email" id="email" class="form-control" name="email" formControlName="email" />
+  </mat-form-field>
 </form>
 <router-outlet></router-outlet>
 
