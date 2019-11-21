@@ -26,6 +26,15 @@ export class RegisterComponent implements OnInit {
         Validators.email
       ])
     });
+    // React to form value changes.
+    this.form.valueChanges.subscribe(values => {
+      const {name, email} = values;
+      console.log(`Submitted values ${name}, ${email}`);
+    });
+    // React to form status changes.
+    this.form.statusChanges.subscribe(validity => {
+      console.log(`The form is ${validity}`);
+    });
   }
 
   doRegister() {
