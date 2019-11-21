@@ -7,8 +7,8 @@
     <label for="email">Email</label>
     <input id="email" class="form-control" name="email" formControlName="email" />
   </div>
-  <button class="btn btn-primary" role="button" type="submit">Register</button>
-  <button class="btn btn-secondary" role="button" type="button">Reset</button>
+  <button class="btn btn-primary" role="button" type="submit" [ngClass]="{'btn-light': !form.valid}" [disabled]="!form.valid">Register</button>
+  <button class="btn btn-secondary" role="button" type="button" [disabled]="!submitted" (click)="resetRegister()">Reset</button>
 </form>
 <router-outlet></router-outlet>
 
