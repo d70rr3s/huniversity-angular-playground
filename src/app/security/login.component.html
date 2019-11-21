@@ -7,6 +7,6 @@
     <label for="email">Email</label>
     <input id="email" class="form-control" name="email" [(ngModel)]="loginModel.email" #email="ngModel" required email />
   </div>
-  <button class="btn btn-light" role="button" type="submit" [disabled]="!loginForm.valid">Login</button>
+  <button class="btn btn-primary" role="button" type="submit" [ngClass]="{'btn-light': !loginForm.valid}" [disabled]="!loginForm.valid">Login</button>
 </form>
 <router-outlet></router-outlet>
