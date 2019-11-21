@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
-import { StudentsModule } from './students/students.module';
+import { SecurityModule } from './security/security.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { StudentsModule } from './students/students.module';
   imports: [
     BrowserModule,
     HomeModule,
-    StudentsModule,
+    SecurityModule,
     AppRoutingModule
   ],
   providers: [],

@@ -4,15 +4,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {StudentsComponent} from './students.component';
 
 const appRoutes: Routes = [
-  {path: 'students', component: StudentsComponent},
-  {path: 'students/:name', component: StudentsComponent}
+  { path: ':name', component: StudentsComponent },
+  { path: '', component: StudentsComponent }
 ];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forChild(appRoutes)
   ],
   exports: [
     RouterModule

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {StudentsRoutingModule} from './students-routing.module';
-import {StudentsComponent} from './students.component';
+
+import { StudentsRoutingModule } from './students-routing.module';
+import { StudentsComponent } from './students.component';
 
 @NgModule({
   declarations: [
@@ -12,4 +13,5 @@ import {StudentsComponent} from './students.component';
     StudentsRoutingModule
   ]
 })
+
 export class StudentsModule { }

@@ -3,7 +3,8 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 const appRoutes: Routes = [
-  {path: '**', redirectTo: 'students'}
+  { path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule) },
+  { path: '**', redirectTo: 'students' }
 ];
 
 @NgModule({
@@ -17,5 +18,4 @@ const appRoutes: Routes = [
   ]
 })
 
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
