@@ -10,19 +10,5 @@
   <button class="btn btn-primary" role="button" type="submit" [ngClass]="{'btn-light': !form.valid}" [disabled]="!form.valid">Register</button>
   <button class="btn btn-secondary" role="button" type="button" [disabled]="!submitted" (click)="resetRegister()">Reset</button>
 </form>
-
-<div class="callout callout-primary">
-  <h4>Two-way biding for dummies: {{ dummy }}</h4>
-  <form>
-    <div class="form-group">
-      <label for="dummy_a">Type here</label>
-      <input id="dummy_a" class="form-control" name="dummy_a" [(ngModel)]="dummy" />
-    </div>
-    <div class="form-group">
-      <label for="dummy_b">Type here</label>
-      <input id="dummy_b" class="form-control" name="dummy_b" [(ngModel)]="dummy" />
-    </div>
-  </form>
-</div>
 <router-outlet></router-outlet>
 
