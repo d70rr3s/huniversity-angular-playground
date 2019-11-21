@@ -8,5 +8,13 @@
     <input id="email" class="form-control" name="email" [(ngModel)]="loginModel.email" #email="ngModel" required email />
   </div>
   <button class="btn btn-primary" role="button" type="submit" [ngClass]="{'btn-light': !loginForm.valid}" [disabled]="!loginForm.valid">Login</button>
+  <button class="btn btn-secondary" role="button" type="button" [disabled]="!submitted" (click)="resetLogin(loginForm)">Reset</button>
 </form>
+<div *ngIf="submitted" class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">User profile</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ loginModel.name }}</h6>
+    <p class="card-text">{{ loginModel.email }}</p>
+  </div>
+</div>
 <router-outlet></router-outlet>
