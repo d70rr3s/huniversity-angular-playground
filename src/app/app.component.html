@@ -6,11 +6,11 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item (click)="goTo('secure/register')">
         <mat-icon>vpn_key</mat-icon>
         <span>Register</span>
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item (click)="goTo('secure/login')">
         <mat-icon>lock</mat-icon>
         <span>Login</span>
       </button>
