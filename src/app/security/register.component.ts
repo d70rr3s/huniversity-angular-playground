@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
+import { User } from '../models/user.model';
+import { UsersService } from '../users/users.service';
 
 @Component({
   selector: 'app-register',
@@ -9,16 +12,19 @@ import { FormControl, FormGroup, Validators} from '@angular/forms';
 
 export class RegisterComponent implements OnInit {
 
-  submitted: boolean;
+  busy: boolean;
   form: FormGroup;
 
-  constructor() { }
+  constructor(private usersService: UsersService, private router: Router) { }
 
   ngOnInit() {
-    this.submitted = false;
+    this.busy = false;
     this.form = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
+        Validators.minLength(3)
+      ]),
+      surname: new FormControl(null, [
         Validators.minLength(3)
       ]),
       email: new FormControl(null, [
@@ -26,25 +32,22 @@ export class RegisterComponent implements OnInit {
         Validators.email
       ])
     });
-    // React to form value changes.
-    this.form.valueChanges.subscribe(values => {
-      const {name, email} = values;
-      console.log(`Submitted values ${name}, ${email}`);
-    });
-    // React to form status changes.
-    this.form.statusChanges.subscribe(validity => {
-      console.log(`The form is ${validity}`);
-    });
   }
 
   doRegister() {
-    this.submitted = true;
-    console.log(this.form);
-  }
-
-  resetRegister() {
-    this.submitted = false;
-    this.form.reset();
+    const {name, surname, email} = this.form.value;
+    const user: User = new User(name, surname, email);
+    this.busy = true;
+    this.usersService.create(user).subscribe(() => {
+      this.form.reset();
+      this.router.navigate(['']).then(() => {
+        console.log('goto:home');
+      });
+    }, error => {
+      console.error(error);
+    }, () => {
+      this.busy = false;
+    });
   }
 
 }

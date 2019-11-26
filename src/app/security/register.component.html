@@ -1,10 +1,36 @@
-<form class="example-container" [formGroup]="form" (ngSubmit)="doRegister()">
-  <mat-form-field>
-    <input matInput placeholder="Type your name" id="name" class="form-control" name="name" formControlName="name" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Type your email" id="email" class="form-control" name="email" formControlName="email" />
-  </mat-form-field>
-</form>
-<router-outlet></router-outlet>
-
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Register</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="doRegister()" [formGroup]="form" class="example-form">
+      <table cellspacing="0" class="example-full-width">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Type your name" id="name" class="form-control" name="name" formControlName="name" />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Type your surname" id="surname" class="form-control" name="surname" formControlName="surname" />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Type your email" id="email" class="form-control" name="email" formControlName="email" />
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <mat-spinner style="height: 1rem;" [style.display]="busy ? 'block' : 'none'"></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="doRegister()" color="primary" mat-raised-button [disabled]="!form.valid">Register</button>
+  </mat-card-actions>
+</mat-card>
