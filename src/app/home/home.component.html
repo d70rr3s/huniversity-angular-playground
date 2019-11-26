@@ -1,13 +1,11 @@
-<div class="callout callout-primary">
-  <h4>Hey</h4>
-  <form>
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input id="name"  class="form-control" [value]="currentUser" (input)="currentUser = $event.target.value">
-      <small id="nameHelp" class="form-text text-muted">Please, enter your name click the link below. If left empty, will navigate without name.</small>
-    </div>
-    <a class="btn btn-light" role="button" [routerLink]="['students', currentUser]">Students</a>
-  </form>
-</div>
-<a class="btn btn-light" role="button" routerLink="secure/login">Login</a>
-<router-outlet></router-outlet>
+<ng-container *ngIf="users">
+  <mat-list role="list">
+    <mat-list-item *ngFor="let user of users?.documents" role="listitem">
+      <h4 mat-line>{{ user.fields.name.stringValue | titlecase }}</h4>
+      <p mat-line> {{ user.fields.surname.stringValue }} </p>
+      <p mat-line> {{ user.fields.email.stringValue }} </p>
+      <p mat-line> {{ user.createTime | date }} </p>
+      <p mat-line> {{ user.updateTime | date }} </p>
+    </mat-list-item>
+  </mat-list>
+</ng-container>

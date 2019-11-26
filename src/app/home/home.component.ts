@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { UsersService } from '../users/users.service';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +8,15 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  currentUser: string;
+  users: any;
 
-  constructor(private router: Router) { }
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    this.currentUser = '';
-  }
-
-  goToStudents() {
-    this.router.navigate(this.currentUser ? [`students/${this.currentUser}`] : ['students']);
+    this.usersService.list().subscribe( results => {
+      console.log(results);
+      this.users = results;
+    });
   }
 
 }
