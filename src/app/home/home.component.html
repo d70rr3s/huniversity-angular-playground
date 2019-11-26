@@ -1,11 +1,24 @@
 <ng-container *ngIf="users">
-  <mat-list role="list">
-    <mat-list-item *ngFor="let user of users?.documents" role="listitem">
-      <h4 mat-line>{{ user.fields.name.stringValue | titlecase }}</h4>
-      <p mat-line> {{ user.fields.surname.stringValue }} </p>
-      <p mat-line> {{ user.fields.email.stringValue }} </p>
-      <p mat-line> {{ user.createTime | date }} </p>
-      <p mat-line> {{ user.updateTime | date }} </p>
-    </mat-list-item>
-  </mat-list>
+  <table [dataSource]="users" class="mat-elevation-z8" mat-table>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell>Name</th>
+      <td *matCellDef="let element" mat-cell>{{element.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="surname">
+      <th *matHeaderCellDef mat-header-cell>Surname</th>
+      <td *matCellDef="let element" mat-cell>{{element.surname}}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th *matHeaderCellDef mat-header-cell>Email</th>
+      <td *matCellDef="let element" mat-cell>{{element.email}}</td>
+    </ng-container>
+    <ng-container matColumnDef="active">
+      <th *matHeaderCellDef mat-header-cell>Active</th>
+      <td *matCellDef="let element" mat-cell>{{element.active}}</td>
+    </ng-container>
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
 </ng-container>

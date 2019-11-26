@@ -1,7 +1,11 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import {environment} from '../../environments/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+
 import {User} from '../models/user.model';
+import {FirebaseUsersResponse} from '../firebase/users.response';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +22,24 @@ export class UsersService {
     return this.env.apiUrl + this.COLLECTION;
   }
 
-  public list() {
-    return this.httpClient.get(this.getUrl());
+  public list(): Observable<User[]> {
+    return this.httpClient.get<FirebaseUsersResponse>(this.getUrl())
+      .pipe(
+        map((response: FirebaseUsersResponse) => {
+          const result: User[] = [];
+          response.documents.forEach(document => {
+            // Skip default document which does not have 'fields'.
+            if (document.hasOwnProperty('fields')) {
+              const record: User = new User('', '');
+              record.name = document.fields.name.stringValue;
+              record.surname = document.fields.surname.stringValue;
+              record.email = document.fields.email.stringValue;
+              record.active = document.fields.active.booleanValue;
+              result.push(record);
+            }
+          });
+          return result;
+        }));
   }
 
   public create(user: User) {
