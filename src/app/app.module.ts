@@ -1,12 +1,14 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { SecurityModule } from './security/security.module';
 import { CoreModule } from './core/core.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,16 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     CoreModule,
     HomeModule,
     SecurityModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UsersModule
   ],
-  providers: [],
+  providers: [
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
