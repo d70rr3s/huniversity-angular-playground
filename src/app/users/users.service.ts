@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 import {User} from '../models/user.model';
-import {FirebaseUsersResponse} from '../firebase/users.response';
+import {Firebase} from '../models/firebase.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +14,16 @@ export class UsersService {
 
   private readonly env = environment;
 
-  private readonly COLLECTION = '/users';
-
   constructor(private httpClient: HttpClient) { }
 
   private getUrl() {
-    return this.env.apiUrl + this.COLLECTION;
+    return this.env.apiUrl + '/' + Firebase.COLLECTION;
   }
 
   public list(): Observable<User[]> {
-    return this.httpClient.get<FirebaseUsersResponse>(this.getUrl())
+    return this.httpClient.get<Firebase.UserCollection>(this.getUrl())
       .pipe(
-        map((response: FirebaseUsersResponse) => {
+        map((response: Firebase.UserCollection) => {
           const result: User[] = [];
           response.documents.forEach(document => {
             // Skip default document which does not have 'fields'.
