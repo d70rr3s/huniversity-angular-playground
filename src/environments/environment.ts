@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://firestore.googleapis.com/v1/projects/huniversity-angular/databases/(default)/documents'
+  apiUrl: 'https://firestore.googleapis.com/v1/projects/huniversity-angular/databases/(default)/documents',
+  authApiUrl: 'http://localhost:8085'
 };
 
 /*
