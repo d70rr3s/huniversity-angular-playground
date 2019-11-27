@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { SecurityRoutingModule } from './security-routing.module';
-import { AngularMaterialModule } from '../angular_material/angular-material.module';
-import { LoginComponent } from './login.component';
-import { RegisterComponent } from './register.component';
+import {AngularMaterialModule} from '../angular_material/angular-material.module';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SecurityRoutingModule} from './security-routing.module';
+import {LoginComponent} from './login.component';
+import {RegisterComponent} from './register.component';
 
 @NgModule({
   declarations: [
@@ -19,4 +18,5 @@ import { RegisterComponent } from './register.component';
   ]
 })
 
-export class SecurityModule { }
+export class SecurityModule {
+}
