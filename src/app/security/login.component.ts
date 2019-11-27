@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Form, NgForm } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {Form, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {LoginService} from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +10,22 @@ import { Form, NgForm } from '@angular/forms';
 
 export class LoginComponent implements OnInit {
 
-  submitted: boolean;
-  loginModel: { name: string, email: string } = { name: null, email: null };
+  form: FormGroup;
 
-  constructor() { }
+  constructor(private loginService: LoginService) {
+  }
 
   ngOnInit() {
-    this.submitted = false;
+    this.form = new FormGroup({
+      identifier: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required)
+    });
   }
 
-  doLogin(form: Form) {
-    this.submitted = true;
-  }
-
-  resetLogin(form: NgForm) {
-    this.submitted = false;
-    form.reset();
+  doLogin() {
+    this.loginService.login(this.form.value.identifier, this.form.value.password).subscribe((data: any) => {
+      localStorage.setItem('tokenAuth', data.token);
+    });
   }
 
 }
