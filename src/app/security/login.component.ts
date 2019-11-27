@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Form, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {LoginService} from './login.service';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import {LoginService} from './login.service';
 
 export class LoginComponent implements OnInit {
 
+  private readonly env = environment;
   form: FormGroup;
 
   constructor(private loginService: LoginService) {
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   doLogin() {
     this.loginService.login(this.form.value.identifier, this.form.value.password).subscribe((data: any) => {
-      localStorage.setItem('tokenAuth', data.token);
+      localStorage.setItem(this.env.tokenKey, data.token);
     });
   }
 
