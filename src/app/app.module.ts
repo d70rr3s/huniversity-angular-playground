@@ -7,7 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeModule} from './home/home.module';
 import {SecurityModule} from './security/security.module';
-import {CoreModule} from './core/core.module';
+import {AngularMaterialModule} from './angular_material/angular-material.module';
 import {UsersModule} from './users/users.module';
 
 @NgModule({
@@ -18,7 +18,7 @@ import {UsersModule} from './users/users.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CoreModule,
+    AngularMaterialModule,
     HomeModule,
     SecurityModule,
     AppRoutingModule,

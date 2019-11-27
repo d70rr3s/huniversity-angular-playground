@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SecurityRoutingModule } from './security-routing.module';
-import { CoreModule } from '../core/core.module';
+import { AngularMaterialModule } from '../angular_material/angular-material.module';
 import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register.component';
 
@@ -12,7 +12,7 @@ import { RegisterComponent } from './register.component';
     RegisterComponent
   ],
   imports: [
-    CoreModule,
+    AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     SecurityRoutingModule

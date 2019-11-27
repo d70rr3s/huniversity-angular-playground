@@ -42,5 +42,5 @@ import {
     MatListModule
   ],
 })
-export class CoreModule {
+export class AngularMaterialModule {
 }
