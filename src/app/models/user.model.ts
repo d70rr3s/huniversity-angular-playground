@@ -17,4 +17,10 @@ export class User {
     this.active = active;
   }
 
+  // @TODO Pull up to an interface.
+  static describe(): Array<string> {
+    const $self: User = new User('', '', '');
+    return Object.getOwnPropertyNames($self);
+  }
+
 }
