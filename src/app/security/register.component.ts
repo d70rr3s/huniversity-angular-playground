@@ -12,6 +12,7 @@ import { UsersService } from '../users/users.service';
 
 export class RegisterComponent implements OnInit {
 
+  roles: any = ['Admin', 'User'];
   busy: boolean;
   form: FormGroup;
 

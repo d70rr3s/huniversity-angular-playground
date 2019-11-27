@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './angular_material/angular-material.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
@@ -22,7 +23,8 @@ import {LoggerInterceptor} from './logger-interceptor.service';
     HomeModule,
     SecurityModule,
     UsersModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FlexLayoutModule
   ],
   providers: [
     HttpClientModule,

@@ -1,20 +1,10 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>{{ title }}</span>
-    <span class="example-fill-remaining-space"></span>
-    <button [matMenuTriggerFor]="menu" mat-icon-button>
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="goTo('secure/register')">
-        <mat-icon>vpn_key</mat-icon>
-        <span>Register</span>
-      </button>
-      <button mat-menu-item (click)="goTo('secure/login')">
-        <mat-icon>lock</mat-icon>
-        <span>Login</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar-row>
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <div><a href="https://github/d70rr3s/hu-angular-playground" target="_blank" class="positronx">{{title}}</a></div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+    <a mat-button mat-raised-button routerLink="register" routerLinkActive="active">Register</a>
+  </span>
 </mat-toolbar>
+
 <router-outlet></router-outlet>
