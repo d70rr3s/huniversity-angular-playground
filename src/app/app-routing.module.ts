@@ -2,8 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: 'secure', loadChildren: () => import('./security/security.module').then(m => m.SecurityModule) },
-  { path: '**', redirectTo: 'secure/register' }
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
