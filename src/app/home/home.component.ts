@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    this.displayedColumns = ['name', 'surname', 'email', 'active'];
+    this.displayedColumns = User.describe();
     this.usersSubscriber = this.usersService.list();
     this.usersSubscriber.pipe(takeUntil(this.destroy$)).subscribe(data => {
       this.users = data;

@@ -2,6 +2,10 @@
   <table [dataSource]="users" class="mat-elevation-z8" mat-table>
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell>Id</th>
+      <td *matCellDef="let element" mat-cell>{{element.id}}</td>
+    </ng-container>
     <ng-container matColumnDef="name">
       <th *matHeaderCellDef mat-header-cell>Name</th>
       <td *matCellDef="let element" mat-cell>{{element.name}}</td>
@@ -13,6 +17,14 @@
     <ng-container matColumnDef="email">
       <th *matHeaderCellDef mat-header-cell>Email</th>
       <td *matCellDef="let element" mat-cell>{{element.email}}</td>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <th *matHeaderCellDef mat-header-cell>Created</th>
+      <td *matCellDef="let element" mat-cell>{{element.created | date:"dd-MM-yy"}}</td>
+    </ng-container>
+    <ng-container matColumnDef="updated">
+      <th *matHeaderCellDef mat-header-cell>Updated</th>
+      <td *matCellDef="let element" mat-cell>{{element.updated | date:"dd-MM-yy"}}</td>
     </ng-container>
     <ng-container matColumnDef="active">
       <th *matHeaderCellDef mat-header-cell>Active</th>
