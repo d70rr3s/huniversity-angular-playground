@@ -28,11 +28,15 @@ export class UsersService {
           response.documents.forEach(document => {
             // Skip default document which does not have 'fields'.
             if (document.hasOwnProperty('fields')) {
-              const record: User = new User('', '');
-              record.name = document.fields.name.stringValue;
-              record.surname = document.fields.surname.stringValue;
-              record.email = document.fields.email.stringValue;
-              record.active = document.fields.active.booleanValue;
+              const record: User = new User(
+                document.name.split('/').pop(),
+                document.fields.name.stringValue,
+                document.fields.surname.stringValue,
+                document.fields.email.stringValue,
+                document.fields.active.booleanValue,
+                document.createTime,
+                document.updateTime
+              );
               result.push(record);
             }
           });
