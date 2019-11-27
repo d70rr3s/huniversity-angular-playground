@@ -11,6 +11,17 @@ import {
   MatTableModule,
   MatToolbarModule,
   MatListModule,
+  MatSidenavModule,
+  MatBadgeModule,
+  MatGridListModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatChipsModule,
+  MatTooltipModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -26,7 +37,18 @@ import {
     MatMenuModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatPaginatorModule
   ],
   exports: [
     CommonModule,
@@ -39,8 +61,22 @@ import {
     MatMenuModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatPaginatorModule
   ],
+  providers: [
+    MatDatepickerModule,
+  ]
 })
 export class AngularMaterialModule {
 }
