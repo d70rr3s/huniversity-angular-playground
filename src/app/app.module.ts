@@ -10,6 +10,7 @@ import {HomeModule} from './home/home.module';
 import {SecurityModule} from './security/security.module';
 import {UsersModule} from './users/users.module';
 import {LoggerInterceptor} from './logger-interceptor.service';
+import {JwtInterceptor} from './jwt-inteceptor.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {LoggerInterceptor} from './logger-interceptor.service';
   ],
   providers: [
     HttpClientModule,
-    {provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
